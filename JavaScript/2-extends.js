@@ -36,12 +36,12 @@ const movable = Category => class extends Category {
 
 const scalable = Category => class extends Category {
   scale(k) {
-    const x = this.width * k / 2;
-    const y = this.height * k / 2;
-    this.width += x;
-    this.height += y;
-    this.x -= x;
-    this.y -= y;
+    const dx = this.width * k;
+    const dy = this.height * k;
+    this.width += dx;
+    this.height += dy;
+    this.x -= dx / 2;
+    this.y -= dy / 2;
   }
 };
 
