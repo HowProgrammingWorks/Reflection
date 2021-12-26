@@ -9,32 +9,32 @@ class Rect {
   }
 }
 
-const equilateral = Category => class extends Category {
+const equilateral = (Category) => class extends Category {
   constructor(x, y, side) {
     super(x, y, side, side);
   }
 };
 
-const serializable = Category => class extends Category {
+const serializable = (Category) => class extends Category {
   toString() {
     return `[${this.x}, ${this.y}, ${this.width}, ${this.height}]`;
   }
 };
 
-const measurable = Category => class extends Category {
+const measurable = (Category) => class extends Category {
   area() {
     return this.width * this.height;
   }
 };
 
-const movable = Category => class extends Category {
+const movable = (Category) => class extends Category {
   move(x, y) {
     this.x += x;
     this.y += y;
   }
 };
 
-const scalable = Category => class extends Category {
+const scalable = (Category) => class extends Category {
   scale(k) {
     const dx = this.width * k;
     const dy = this.height * k;
@@ -47,7 +47,7 @@ const scalable = Category => class extends Category {
 
 // Utils
 
-const compose = (...fns) => arg => (
+const compose = (...fns) => (arg) => (
   fns.reduce((arg, fn) => fn(arg), arg)
 );
 

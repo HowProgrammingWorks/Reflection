@@ -1,6 +1,6 @@
 'use strict';
 
-const logable = fields => {
+const logable = (fields) => {
 
   function Logable(data) {
     this.values = data;
@@ -40,8 +40,8 @@ const logable = fields => {
 // Usage
 
 const Person = logable({
-  name: { type: 'string', validate: name => name.length > 0 },
-  born: { type: 'number', validate: born => !(born % 1) },
+  name: { type: 'string', validate: (name) => name.length > 0 },
+  born: { type: 'number', validate: (born) => !(born % 1) },
 });
 
 const p1 = new Person({ name: 'Marcus Aurelius', born: 121 });
